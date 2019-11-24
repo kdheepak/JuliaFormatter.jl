@@ -978,6 +978,7 @@ function p_let(x, s)
             add_node!(t, pretty(x.args[2], s), s, join_lines = true)
         end
         s.indent -= s.indent_size
+
         idx = length(t.nodes)
         s.indent += s.indent_size
         add_node!(
@@ -1077,7 +1078,6 @@ end
 
 # Do
 function p_do(x, s)
-    # @info "" s.indent_size
     t = PTree(x, nspaces(s))
     add_node!(t, pretty(x.args[1], s), s)
     add_node!(t, Whitespace(1), s)
